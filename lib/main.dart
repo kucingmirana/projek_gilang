@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projek_gilang/menu_awal/menu_awal.dart';
+import 'package:projek_gilang/sign_in/components/sign_in_screen.dart';
+import 'package:projek_gilang/sign_in/sign_in.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MenuAwal(),
+      home: SignIn(),
     );
   }
 }
