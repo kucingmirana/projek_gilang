@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projek_gilang/menu_awal/menu_awal.dart';
+import 'package:projek_gilang/register/register.dart';
 import 'package:projek_gilang/sign_in/components/sign_in_screen.dart';
 import 'package:projek_gilang/sign_in/sign_in.dart';
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SignIn(),
+      home: MenuAwal(),
     );
   }
 }
