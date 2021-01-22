@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:projek_gilang/constants.dart';
 import 'package:projek_gilang/register/register.dart';
 import 'package:projek_gilang/sign_in/sign_in.dart';
@@ -11,6 +12,11 @@ import 'package:projek_gilang/size_config.dart';
 class MenuAwalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void register() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Register()));
+    }
+
     SizeConfig().init(context);
     Size size = MediaQuery.of(context).size;
 
@@ -86,7 +92,7 @@ class MenuAwalScreen extends StatelessWidget {
                 maxWidth: double.infinity,
                 minHeight: getProportionateScreenHeight(40)),
             child: Text(
-              'MASUK',
+              'Masuk',
               style: TextStyle(
                 color: Color(0xFF4C4C4C),
                 fontSize: 18.0,
@@ -109,113 +115,114 @@ class MenuAwalScreen extends StatelessWidget {
       padding: EdgeInsets.only(
           left: getProportionateScreenHeight(20),
           right: getProportionateScreenHeight(20)),
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Register()));
-        },
-        padding: EdgeInsets.all(0),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100.0),
+      child: OutlineGradientButton(
+        onTap: register,
+        child: Text(
+          'Daftar',
+          style: TextStyle(
+            color: Color(0XFFFFFBFB),
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+            fontFamily: 'Roboto',
           ),
-          child: Container(
-            alignment: Alignment.center,
-            constraints: BoxConstraints(
-                maxWidth: double.infinity,
-                minHeight: getProportionateScreenHeight(40)),
-            child: Text(
-              'Daftar',
-              style: TextStyle(
-                color: Color(0XFFFFFBFB),
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Roboto',
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
+          textAlign: TextAlign.center,
         ),
-        shape: RoundedRectangleBorder(
-            side: BorderSide(
-                color: Colors.deepOrangeAccent,
-                width: 1,
-                style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(50)),
+        gradient: LinearGradient(
+            colors: [Color(0XFFB28346), Color(0XFFFEECCA), Color(0XFFFFDD88)]),
+        strokeWidth: 1,
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        radius: Radius.circular(100.0),
       ),
     );
 
-    final headTop = SafeArea(
-      child: Column(
+    final headTop = Column(
+      children: <Widget>[
+        Container(
+          height: size.height * 0.3,
+          child: Stack(
+            children: <Widget>[
+              Container(
+                height: size.height * 0.25,
+                decoration: BoxDecoration(
+                  color: SecondColor,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(75),
+                    bottomRight: Radius.circular(75),
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Hero(
+                  tag: 'hero',
+                  child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: 48.0,
+                    child: SvgPicture.asset("assets/images/logo.svg"),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    return SafeArea(
+      child: Stack(
         children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/Background_menu_awal.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SvgPicture.asset(
+            "assets/images/background.svg",
+            //alignment: Alignment.center,
+            fit: BoxFit.fitWidth,
+            color: Color(0XFF666666).withOpacity(0.15),
+          ),
           Container(
             height: size.height * 0.3,
             child: Stack(
               children: <Widget>[
                 Container(
-                  height: size.height * 0.25,
+                  height: size.height * 0.26,
                   decoration: BoxDecoration(
-                    color: SecondColor,
+                    gradient: PrimaryGradientColor,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(80),
-                      bottomRight: Radius.circular(80),
-                    ),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Hero(
-                    tag: 'hero',
-                    child: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      radius: 48.0,
-                      child: SvgPicture.asset("assets/images/logo.svg"),
+                      bottomLeft: Radius.circular(75),
+                      bottomRight: Radius.circular(75),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-        ],
-      ),
-    );
-
-    return Stack(
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/Background_menu_awal.png"),
-              fit: BoxFit.cover,
+          Container(
+            padding: EdgeInsets.only(
+              bottom: getProportionateScreenHeight(20),
+            ),
+            child: ListView(
+              shrinkWrap: true,
+              children: <Widget>[
+                headTop,
+                SizedBox(height: getProportionateScreenHeight(90)),
+                assalamualaikum,
+                SizedBox(height: getProportionateScreenHeight(3)),
+                deskripsi,
+                SizedBox(height: getProportionateScreenHeight(68)),
+                loginButton,
+                SizedBox(height: getProportionateScreenHeight(28)),
+                registerButton,
+              ],
             ),
           ),
-        ),
-        SvgPicture.asset(
-          "assets/images/background.svg",
-          //alignment: Alignment.center,
-          fit: BoxFit.fitWidth,
-          color: Color(0XFF666666).withOpacity(0.15),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-            bottom: getProportionateScreenHeight(20),
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            children: <Widget>[
-              headTop,
-              SizedBox(height: getProportionateScreenHeight(101)),
-              assalamualaikum,
-              SizedBox(height: getProportionateScreenHeight(3)),
-              deskripsi,
-              SizedBox(height: getProportionateScreenHeight(68)),
-              loginButton,
-              SizedBox(height: getProportionateScreenHeight(28)),
-              registerButton,
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
