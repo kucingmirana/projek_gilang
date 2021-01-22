@@ -64,37 +64,7 @@ class RegisterScreen extends StatelessWidget {
       ),
     );
 
-    final atau = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Container(
-            width: getProportionateScreenWidth(120),
-            height: 1.0,
-            color: Colors.black26.withOpacity(.2),
-          ),
-        ),
-        Text(
-          ' atau ',
-          style: TextStyle(
-              color: Color(0xFFC3BEBE),
-              fontSize: 12.0,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'Roboto'),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Container(
-            width: getProportionateScreenWidth(120),
-            height: 1.0,
-            color: Colors.black26.withOpacity(.2),
-          ),
-        ),
-      ],
-    );
-
-    final loginButton = Container(
+    final registerButton = Container(
       height: 50,
       width: double.infinity,
       child: FlatButton(
@@ -136,30 +106,6 @@ class RegisterScreen extends StatelessWidget {
       ),
     );
 
-    final socialIcon = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        SocialIcon(
-          colors: [
-            Color(0xFF102397),
-            Color(0xFF187adf),
-            Color(0xFF00eaf8),
-          ],
-          iconData: CustomIcons.facebook,
-          onPressed: () {},
-        ),
-        SocialIcon(
-          colors: [
-            Color(0xFF102397),
-            Color(0xFF187adf),
-            Color(0xFF00eaf8),
-          ],
-          iconData: CustomIcons.googlePlus,
-          onPressed: () {},
-        ),
-      ],
-    );
-
     return Stack(
       children: <Widget>[
         Container(
@@ -188,11 +134,7 @@ class RegisterScreen extends StatelessWidget {
               SizedBox(height: getProportionateScreenHeight(28)),
               ulangipassword,
               SizedBox(height: getProportionateScreenHeight(42)),
-              loginButton,
-              SizedBox(height: getProportionateScreenHeight(30)),
-              atau,
-              SizedBox(height: getProportionateScreenHeight(32)),
-              socialIcon,
+              registerButton,
             ],
           ),
         ),
