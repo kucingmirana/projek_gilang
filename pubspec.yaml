@@ -52,7 +52,9 @@ flutter:
      - assets/images/logo.svg
      - assets/images/background.svg
      - assets/images/shapeatas.png
-     - assets/icons/
+     - assets/images/Background_menu_awal.png
+     - assets/icons/icon_facebook1.png
+     - assets/icons/icon_google1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

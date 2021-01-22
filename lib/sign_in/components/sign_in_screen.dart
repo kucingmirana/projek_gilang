@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:gradient_input_border/gradient_input_border.dart';
 import 'package:projek_gilang/constants.dart';
-import 'package:projek_gilang/sign_in/components/social_icon.dart';
 import 'package:projek_gilang/size_config.dart';
 import 'icon_data.dart';
 
@@ -136,25 +135,59 @@ class SignInScreen extends StatelessWidget {
     );
 
     final socialIcon = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        SocialIcon(
-          colors: [
-            Color(0xFF102397),
-            Color(0xFF187adf),
-            Color(0xFF00eaf8),
-          ],
-          iconData: CustomIcons.facebook,
-          onPressed: () {},
+        Container(
+          height: 41,
+          width: 41,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xffD8A25C),
+                Color(0xffFFDD88),
+                Color(0xffFEECCA),
+              ],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0, 2),
+                blurRadius: 6.0,
+              )
+            ],
+            image: DecorationImage(
+              image: AssetImage('assets/icons/icon_facebook1.png'),
+            ),
+          ),
         ),
-        SocialIcon(
-          colors: [
-            Color(0xFF102397),
-            Color(0xFF187adf),
-            Color(0xFF00eaf8),
-          ],
-          iconData: CustomIcons.googlePlus,
-          onPressed: () {},
+        Container(
+          height: 41,
+          width: 41,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xffD8A25C),
+                Color(0xffFFDD88),
+                Color(0xffFEECCA),
+              ],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0, 2),
+                blurRadius: 6.0,
+              )
+            ],
+            image: DecorationImage(
+              image: AssetImage('assets/icons/icon_google1.png'),
+            ),
+          ),
         ),
       ],
     );
