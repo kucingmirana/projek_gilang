@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:projek_gilang/constants.dart';
 import 'package:projek_gilang/register/register.dart';
 import 'package:projek_gilang/sign_in/sign_in.dart';
 
@@ -11,14 +12,7 @@ class MenuAwalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: SvgPicture.asset("assets/images/logo.svg"),
-      ),
-    );
+    Size size = MediaQuery.of(context).size;
 
     final Shader linearGradient = LinearGradient(
       colors: <Color>[
@@ -30,12 +24,15 @@ class MenuAwalScreen extends StatelessWidget {
 
     final assalamualaikum = Container(
       alignment: Alignment.center,
+      padding: EdgeInsets.only(
+          left: getProportionateScreenHeight(20),
+          right: getProportionateScreenHeight(20)),
       child: Text(
         'As-salamualaikum',
         style: TextStyle(
           fontSize: 30.0,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Roboto',
+          fontFamily: 'Pacifico',
           foreground: Paint()..shader = linearGradient,
         ),
       ),
@@ -43,11 +40,14 @@ class MenuAwalScreen extends StatelessWidget {
 
     final deskripsi = Container(
       alignment: Alignment.center,
+      padding: EdgeInsets.only(
+          left: getProportionateScreenHeight(20),
+          right: getProportionateScreenHeight(20)),
       child: Text(
         'Sebelum memulai ada baiknya membaca bismillah dan mengakhiri dengan alhamdulillah',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: Colors.white,
+          color: Color(0XFFFFFBFB),
           fontSize: 14.0,
           fontWeight: FontWeight.w400,
           fontFamily: 'Roboto',
@@ -58,6 +58,9 @@ class MenuAwalScreen extends StatelessWidget {
     final loginButton = Container(
       height: 50,
       width: double.infinity,
+      padding: EdgeInsets.only(
+          left: getProportionateScreenHeight(20),
+          right: getProportionateScreenHeight(20)),
       child: FlatButton(
         onPressed: () {
           Navigator.push(
@@ -86,7 +89,6 @@ class MenuAwalScreen extends StatelessWidget {
               'MASUK',
               style: TextStyle(
                 color: Color(0xFF4C4C4C),
-                letterSpacing: 1.5,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Roboto',
@@ -104,6 +106,9 @@ class MenuAwalScreen extends StatelessWidget {
     final registerButton = Container(
       height: 50,
       width: double.infinity,
+      padding: EdgeInsets.only(
+          left: getProportionateScreenHeight(20),
+          right: getProportionateScreenHeight(20)),
       child: FlatButton(
         onPressed: () {
           Navigator.push(context,
@@ -122,8 +127,7 @@ class MenuAwalScreen extends StatelessWidget {
             child: Text(
               'Daftar',
               style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 1.5,
+                color: Color(0XFFFFFBFB),
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Roboto',
@@ -141,35 +145,66 @@ class MenuAwalScreen extends StatelessWidget {
       ),
     );
 
+    final headTop = SafeArea(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: size.height * 0.3,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  height: size.height * 0.25,
+                  decoration: BoxDecoration(
+                    color: SecondColor,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(80),
+                      bottomRight: Radius.circular(80),
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Hero(
+                    tag: 'hero',
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      radius: 48.0,
+                      child: SvgPicture.asset("assets/images/logo.svg"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
     return Stack(
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/Background_menu_awal.png"),
+              image: AssetImage("assets/images/ornament.png"),
               fit: BoxFit.cover,
             ),
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(
-            getProportionateScreenHeight(20),
-            getProportionateScreenHeight(14),
-            getProportionateScreenHeight(20),
-            getProportionateScreenHeight(20),
+          padding: EdgeInsets.only(
+            bottom: getProportionateScreenHeight(20),
           ),
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
-              SizedBox(height: getProportionateScreenHeight(27)),
-              logo,
-              SizedBox(height: getProportionateScreenHeight(200)),
+              headTop,
+              SizedBox(height: getProportionateScreenHeight(101)),
               assalamualaikum,
-              SizedBox(height: getProportionateScreenHeight(10)),
+              SizedBox(height: getProportionateScreenHeight(3)),
               deskripsi,
-              SizedBox(height: getProportionateScreenHeight(150)),
+              SizedBox(height: getProportionateScreenHeight(68)),
               loginButton,
-              SizedBox(height: getProportionateScreenHeight(20)),
+              SizedBox(height: getProportionateScreenHeight(28)),
               registerButton,
             ],
           ),

@@ -121,7 +121,6 @@ class SignInScreen extends StatelessWidget {
               'MASUK',
               style: TextStyle(
                 color: Color(0xFF4C4C4C),
-                letterSpacing: 1.5,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Roboto',
