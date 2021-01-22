@@ -111,8 +111,8 @@ class MenuAwalScreen extends StatelessWidget {
           right: getProportionateScreenHeight(20)),
       child: FlatButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RegisterScreen()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Register()));
         },
         padding: EdgeInsets.all(0),
         child: Ink(
@@ -185,10 +185,16 @@ class MenuAwalScreen extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/ornament.png"),
+              image: AssetImage("assets/images/Background_menu_awal.png"),
               fit: BoxFit.cover,
             ),
           ),
+        ),
+        SvgPicture.asset(
+          "assets/images/background.svg",
+          //alignment: Alignment.center,
+          fit: BoxFit.fitWidth,
+          color: Color(0XFF666666).withOpacity(0.15),
         ),
         Container(
           padding: EdgeInsets.only(

@@ -9,7 +9,7 @@ import 'package:projek_gilang/sign_in/components/social_icon.dart';
 import 'package:projek_gilang/size_config.dart';
 import 'icon_data.dart';
 
-class SignInScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -50,15 +50,16 @@ class SignInScreen extends StatelessWidget {
       ),
     );
 
-    final loginWith = Container(
-      alignment: Alignment.center,
-      child: Text(
-        'Lupa Password?',
-        style: TextStyle(
-          color: Color(0xFF7192E5),
-          fontSize: 12.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: 'Roboto',
+    final ulangipassword = TextFormField(
+      autofocus: false,
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Ulangi Password',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: GradientOutlineInputBorder(
+          focusedGradient: InputFormGradient,
+          unfocusedGradient: InputFormGradient,
+          borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );
@@ -118,7 +119,7 @@ class SignInScreen extends StatelessWidget {
                 maxWidth: double.infinity,
                 minHeight: getProportionateScreenHeight(40)),
             child: Text(
-              'MASUK',
+              'Daftar',
               style: TextStyle(
                 color: Color(0xFF4C4C4C),
                 fontSize: 18.0,
@@ -180,14 +181,14 @@ class SignInScreen extends StatelessWidget {
             shrinkWrap: true,
             children: <Widget>[
               logo,
-              SizedBox(height: getProportionateScreenHeight(57)),
+              SizedBox(height: getProportionateScreenHeight(37)),
               email,
               SizedBox(height: getProportionateScreenHeight(28)),
               password,
+              SizedBox(height: getProportionateScreenHeight(28)),
+              ulangipassword,
               SizedBox(height: getProportionateScreenHeight(42)),
               loginButton,
-              SizedBox(height: getProportionateScreenHeight(22)),
-              loginWith,
               SizedBox(height: getProportionateScreenHeight(30)),
               atau,
               SizedBox(height: getProportionateScreenHeight(32)),

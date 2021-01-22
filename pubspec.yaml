@@ -51,6 +51,8 @@ flutter:
      - assets/images/logo.svg
      - assets/images/background_login.svg
      - assets/images/Background_menu_awal.png
+     - assets/images/background.svg
+     - assets/images/shapeatas.png
      - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
